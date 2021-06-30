@@ -17,6 +17,13 @@
 		12B4DB29268CCB6000980C65 /* MovieInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB28268CCB6000980C65 /* MovieInfoModel.swift */; };
 		12B4DB2C268CCC8500980C65 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB2B268CCC8500980C65 /* Credential.swift */; };
 		12B4DB2F268CD10800980C65 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB2E268CD10800980C65 /* UIViewController.swift */; };
+		12B4DB32268CD2CD00980C65 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B4DB31268CD2CD00980C65 /* WorkSans-Regular.ttf */; };
+		12B4DB34268CD2DB00980C65 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B4DB33268CD2DB00980C65 /* WorkSans-Medium.ttf */; };
+		12B4DB36268CD2E400980C65 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B4DB35268CD2E400980C65 /* WorkSans-Light.ttf */; };
+		12B4DB3C268CDEC000980C65 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB3A268CDEC000980C65 /* MovieTableViewCell.swift */; };
+		12B4DB3D268CDEC000980C65 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */; };
+		12B4DB3F268CFFDF00980C65 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB3E268CFFDF00980C65 /* UITableView.swift */; };
+		12B4DB41268D104900980C65 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB40268D104900980C65 /* UIImage.swift */; };
 		3F235813C2F736AE4EB69413 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999AC5D6E60A8BDF0E8D24E /* Pods_MovieDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,13 @@
 		12B4DB28268CCB6000980C65 /* MovieInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoModel.swift; sourceTree = "<group>"; };
 		12B4DB2B268CCC8500980C65 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		12B4DB2E268CD10800980C65 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		12B4DB31268CD2CD00980C65 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		12B4DB33268CD2DB00980C65 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		12B4DB35268CD2E400980C65 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		12B4DB3A268CDEC000980C65 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		12B4DB3E268CFFDF00980C65 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		12B4DB40268D104900980C65 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		6999AC5D6E60A8BDF0E8D24E /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A560A594B097537B7D26E47D /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 		E8D66806D23D6D33F9AE2980 /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +118,7 @@
 		12B4DB1B268CC9E300980C65 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				12B4DB37268CDE5C00980C65 /* Cells */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -111,8 +126,8 @@
 		12B4DB1C268CC9F400980C65 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				12B4DB10268CC91800980C65 /* LaunchScreen.storyboard */,
 				12B4DB0B268CC91500980C65 /* Main.storyboard */,
+				12B4DB10268CC91800980C65 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -129,6 +144,7 @@
 		12B4DB1E268CCA0900980C65 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				12B4DB30268CD2BA00980C65 /* WorkSans */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -170,8 +186,45 @@
 			isa = PBXGroup;
 			children = (
 				12B4DB2E268CD10800980C65 /* UIViewController.swift */,
+				12B4DB3E268CFFDF00980C65 /* UITableView.swift */,
+				12B4DB40268D104900980C65 /* UIImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12B4DB30268CD2BA00980C65 /* WorkSans */ = {
+			isa = PBXGroup;
+			children = (
+				12B4DB33268CD2DB00980C65 /* WorkSans-Medium.ttf */,
+				12B4DB35268CD2E400980C65 /* WorkSans-Light.ttf */,
+				12B4DB31268CD2CD00980C65 /* WorkSans-Regular.ttf */,
+			);
+			path = WorkSans;
+			sourceTree = "<group>";
+		};
+		12B4DB37268CDE5C00980C65 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				12B4DB39268CDE6900980C65 /* TableView */,
+				12B4DB38268CDE6100980C65 /* CollectionView */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		12B4DB38268CDE6100980C65 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		12B4DB39268CDE6900980C65 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				12B4DB3A268CDEC000980C65 /* MovieTableViewCell.swift */,
+				12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		5F834C4062F248F2CC725EA5 /* Frameworks */ = {
@@ -251,8 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				12B4DB12268CC91800980C65 /* LaunchScreen.storyboard in Resources */,
+				12B4DB3D268CDEC000980C65 /* MovieTableViewCell.xib in Resources */,
+				12B4DB36268CD2E400980C65 /* WorkSans-Light.ttf in Resources */,
 				12B4DB0F268CC91800980C65 /* Assets.xcassets in Resources */,
 				12B4DB0D268CC91500980C65 /* Main.storyboard in Resources */,
+				12B4DB34268CD2DB00980C65 /* WorkSans-Medium.ttf in Resources */,
+				12B4DB32268CD2CD00980C65 /* WorkSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +363,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				12B4DB2F268CD10800980C65 /* UIViewController.swift in Sources */,
+				12B4DB41268D104900980C65 /* UIImage.swift in Sources */,
 				12B4DB0A268CC91500980C65 /* ViewController.swift in Sources */,
 				12B4DB29268CCB6000980C65 /* MovieInfoModel.swift in Sources */,
 				12B4DB06268CC91500980C65 /* AppDelegate.swift in Sources */,
 				12B4DB08268CC91500980C65 /* SceneDelegate.swift in Sources */,
+				12B4DB3F268CFFDF00980C65 /* UITableView.swift in Sources */,
 				12B4DB2C268CCC8500980C65 /* Credential.swift in Sources */,
+				12B4DB3C268CDEC000980C65 /* MovieTableViewCell.swift in Sources */,
 				12B4DB27268CCB4800980C65 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzkr.MovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -489,7 +549,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oguzkr.MovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -42,5 +42,4 @@ class networkManager {
             }
         }.resume()
     }
-    //https://api.themoviedb.org/3/movie/popular?language=tr-TR&api_key=fd2b04342048fa2d5f728561866ad52a&page=1
 }
