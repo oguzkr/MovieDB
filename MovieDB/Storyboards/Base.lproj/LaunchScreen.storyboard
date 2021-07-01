@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieDB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-Wi-hyi">
-                                <rect key="frame" x="144" y="430" width="126" height="36"/>
+                                <rect key="frame" x="145.5" y="430" width="123" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="bGP-mV-XE3"/>
                                 </constraints>
@@ -46,7 +46,7 @@
     </scenes>
     <resources>
         <namedColor name="DarkBlue">
-            <color red="0.18000879880000001" green="0.18284744019999999" blue="0.25330460069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18000000715255737" green="0.18400000035762787" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

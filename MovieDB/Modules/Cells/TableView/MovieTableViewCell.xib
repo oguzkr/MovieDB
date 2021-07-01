@@ -197,10 +197,10 @@
                 <outlet property="buttonFav" destination="ZAG-K8-goG" id="rMY-Br-o79"/>
                 <outlet property="imageMovieInfo" destination="vMk-do-ftB" id="894-Ro-Cs8"/>
                 <outlet property="imageViewMovieBg" destination="xpL-e0-iuA" id="nut-Jc-hqm"/>
-                <outlet property="imageViewReleaseYear" destination="Ih5-T6-q49" id="5Vl-32-t4U"/>
                 <outlet property="labelMovieName" destination="lHT-KM-gA4" id="ynV-oD-cgB"/>
                 <outlet property="labelMovieVote" destination="tlk-gF-xrV" id="ISv-uq-UEs"/>
                 <outlet property="labelMovieVoteCount" destination="h9A-pT-Y9z" id="mRu-pQ-C2R"/>
+                <outlet property="labelReleaseYear" destination="Ih5-T6-q49" id="A0J-MU-I7p"/>
                 <outlet property="movieInfo" destination="vMk-do-ftB" id="iIX-AF-vJS"/>
                 <outlet property="textViewMovieDesc" destination="9q0-0M-hmA" id="GQt-Ql-zZw"/>
             </connections>

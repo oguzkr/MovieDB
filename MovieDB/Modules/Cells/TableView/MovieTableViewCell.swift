@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol MovieDetailDelegate {
+    func goToDetail()
+}
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewMovieBg: UIImageView!
@@ -16,9 +18,11 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var labelMovieName: UILabel!
     @IBOutlet weak var labelMovieVote: UILabel!
     @IBOutlet weak var labelMovieVoteCount: UILabel!
-    @IBOutlet weak var imageViewReleaseYear: UILabel!
+    @IBOutlet weak var labelReleaseYear: UILabel!
     @IBOutlet weak var buttonFav: UIButton!
-
+    
+    var delegate:MovieDetailDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setContentToBottom(animated: false)
@@ -29,7 +33,8 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func clickInfo(_ sender: Any) {
-        
+        setContentToBottom(animated: true)
+        delegate?.goToDetail()
     }
     
     @IBAction func clickClose(_ sender: Any) {
