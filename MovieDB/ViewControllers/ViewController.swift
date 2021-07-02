@@ -51,14 +51,15 @@ class ViewController: UIViewController, MovieDetailDelegate {
     
     //MARK: HELPER FUNCTIONS
     func setTableView(){
-        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTVCell")
+        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: Identifiers.MovieTableCell)
+
         tableView.delegate = self
         tableView.dataSource = self
         
     }
     
     func goToDetail() {
-        performSegue(withIdentifier: "movieDetail", sender: nil)
+        performSegue(withIdentifier: Identifiers.detailPageSegue, sender: nil)
     }
     
     
@@ -112,6 +113,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         movieVote = "\(movies.first!.results[indexPath.row].vote_average)/10"
         movieVoteCount = "\(movies.first!.results[indexPath.row].vote_count)"
         movieDesc = movies.first!.results[indexPath.row].overview
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = TableViewFooter.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
+        
+        return footerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
     }
     
 

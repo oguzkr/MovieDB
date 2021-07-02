@@ -24,6 +24,11 @@
 		12B4DB3D268CDEC000980C65 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */; };
 		12B4DB3F268CFFDF00980C65 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB3E268CFFDF00980C65 /* UITableView.swift */; };
 		12B4DB41268D104900980C65 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B4DB40268D104900980C65 /* UIImage.swift */; };
+		12E76A35268F4AB000FC17B7 /* LoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E76A33268F4AB000FC17B7 /* LoadMoreTableViewCell.swift */; };
+		12E76A36268F4AB000FC17B7 /* LoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E76A34268F4AB000FC17B7 /* LoadMoreTableViewCell.xib */; };
+		12E76A38268F4F3600FC17B7 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E76A37268F4F3600FC17B7 /* Identifiers.swift */; };
+		12E76A3A268F53C400FC17B7 /* TableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E76A39268F53C400FC17B7 /* TableViewFooter.xib */; };
+		12E76A3C268F53E100FC17B7 /* TableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E76A3B268F53E000FC17B7 /* TableViewFooter.swift */; };
 		12FF8F22268E054A00352B52 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF8F21268E054A00352B52 /* MovieDetailViewController.swift */; };
 		12FF8F25268E086200352B52 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF8F24268E086200352B52 /* RoundedImageView.swift */; };
 		12FF8F27268E088500352B52 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF8F26268E088500352B52 /* UIView.swift */; };
@@ -50,6 +55,11 @@
 		12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		12B4DB3E268CFFDF00980C65 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		12B4DB40268D104900980C65 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		12E76A33268F4AB000FC17B7 /* LoadMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableViewCell.swift; sourceTree = "<group>"; };
+		12E76A34268F4AB000FC17B7 /* LoadMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreTableViewCell.xib; sourceTree = "<group>"; };
+		12E76A37268F4F3600FC17B7 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		12E76A39268F53C400FC17B7 /* TableViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewFooter.xib; sourceTree = "<group>"; };
+		12E76A3B268F53E000FC17B7 /* TableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooter.swift; sourceTree = "<group>"; };
 		12FF8F21268E054A00352B52 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		12FF8F24268E086200352B52 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		12FF8F26268E088500352B52 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -109,6 +119,7 @@
 				12B4DB2D268CD0FF00980C65 /* Extensions */,
 				12B4DB1F268CCA2100980C65 /* Delegates */,
 				12B4DB2B268CCC8500980C65 /* Credential.swift */,
+				12E76A37268F4F3600FC17B7 /* Identifiers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -126,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				12B4DB37268CDE5C00980C65 /* Cells */,
+				12E76A39268F53C400FC17B7 /* TableViewFooter.xib */,
+				12E76A3B268F53E000FC17B7 /* TableViewFooter.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -232,6 +245,8 @@
 			children = (
 				12B4DB3A268CDEC000980C65 /* MovieTableViewCell.swift */,
 				12B4DB3B268CDEC000980C65 /* MovieTableViewCell.xib */,
+				12E76A33268F4AB000FC17B7 /* LoadMoreTableViewCell.swift */,
+				12E76A34268F4AB000FC17B7 /* LoadMoreTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -320,9 +335,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E76A36268F4AB000FC17B7 /* LoadMoreTableViewCell.xib in Resources */,
 				12B4DB12268CC91800980C65 /* LaunchScreen.storyboard in Resources */,
 				12B4DB3D268CDEC000980C65 /* MovieTableViewCell.xib in Resources */,
 				12B4DB36268CD2E400980C65 /* WorkSans-Light.ttf in Resources */,
+				12E76A3A268F53C400FC17B7 /* TableViewFooter.xib in Resources */,
 				12B4DB0F268CC91800980C65 /* Assets.xcassets in Resources */,
 				12B4DB0D268CC91500980C65 /* Main.storyboard in Resources */,
 				12B4DB34268CD2DB00980C65 /* WorkSans-Medium.ttf in Resources */,
@@ -381,6 +398,7 @@
 			files = (
 				12FF8F27268E088500352B52 /* UIView.swift in Sources */,
 				12B4DB2F268CD10800980C65 /* UIViewController.swift in Sources */,
+				12E76A3C268F53E100FC17B7 /* TableViewFooter.swift in Sources */,
 				12B4DB41268D104900980C65 /* UIImage.swift in Sources */,
 				12B4DB0A268CC91500980C65 /* ViewController.swift in Sources */,
 				12B4DB29268CCB6000980C65 /* MovieInfoModel.swift in Sources */,
@@ -391,6 +409,8 @@
 				12FF8F25268E086200352B52 /* RoundedImageView.swift in Sources */,
 				12B4DB3C268CDEC000980C65 /* MovieTableViewCell.swift in Sources */,
 				12FF8F22268E054A00352B52 /* MovieDetailViewController.swift in Sources */,
+				12E76A35268F4AB000FC17B7 /* LoadMoreTableViewCell.swift in Sources */,
+				12E76A38268F4F3600FC17B7 /* Identifiers.swift in Sources */,
 				12B4DB27268CCB4800980C65 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
