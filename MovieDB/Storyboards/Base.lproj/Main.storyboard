@@ -62,7 +62,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Lf2-eR-qN8"/>
                                 </constraints>
-                                <color key="tintColor" red="0.94208925960000001" green="0.94222468140000004" blue="0.94205981490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" name="Purple"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -90,6 +90,7 @@
                     <navigationItem key="navigationItem" id="E8x-9u-DeL"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="JBC-9F-D0V" id="7BU-kE-bUR"/>
                         <outlet property="tableView" destination="0zv-mt-eQW" id="ezQ-O4-7eO"/>
                         <segue destination="Kuo-Fo-Txb" kind="show" identifier="movieDetail" id="VpI-nJ-3aa"/>
                     </connections>

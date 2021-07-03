@@ -7,14 +7,26 @@
 
 import UIKit
 
+protocol LoadMoreDelegate {
+    func goToNextPage()
+    func goToBackPage()
+}
+
 class TableViewFooter: UIView {
+    
+    var delegate:LoadMoreDelegate?
+    
+    @IBOutlet weak var labelPage: UILabel!
+    @IBOutlet weak var buttonNext: UIButton!
+    @IBOutlet weak var buttonBack: UIButton!
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBAction func clickNext(_ sender: Any) {
+        delegate?.goToNextPage()
     }
-    */
+    
+    @IBAction func clickBack(_ sender: Any) {
+        delegate?.goToBackPage()
 
+    }
+    
 }
