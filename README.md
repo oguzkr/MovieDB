@@ -13,5 +13,5 @@
 
 ##### -SDWebImage
 ##### -SwiftGifOrigin
-##### -pod Alamofire
-##### -pod SVProgressHUD
+##### -Alamofire
+##### -SVProgressHUD
