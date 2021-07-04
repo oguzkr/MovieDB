@@ -121,21 +121,9 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
             getMovies()
         }
     }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = Bundle.main.loadNibNamed("TableViewFooter", owner: self, options: nil)?.last as! TableViewFooter
-        footerView.delegate = self
-        footerView.labelPage.text = "\(movies.first!.page)/\(movies.first!.total_pages)"
-        return footerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50
-    }
-
-
-
 }
+
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: TABLEVIEW CUSTOMIZATIONS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -213,6 +201,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         movieDesc = currentMovie!.overview
         movieReleaseYear =  currentMovie!.release_date!
         
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = Bundle.main.loadNibNamed("TableViewFooter", owner: self, options: nil)?.last as! TableViewFooter
+        footerView.delegate = self
+        footerView.labelPage.text = "\(movies.first!.page)/\(movies.first!.total_pages)"
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
     }
     
     

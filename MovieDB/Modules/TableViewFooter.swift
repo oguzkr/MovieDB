@@ -26,7 +26,6 @@ class TableViewFooter: UIView {
     
     @IBAction func clickBack(_ sender: Any) {
         delegate?.goToBackPage()
-
     }
     
 }

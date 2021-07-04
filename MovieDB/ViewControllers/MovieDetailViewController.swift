@@ -37,13 +37,10 @@ class MovieDetailViewController: UIViewController {
         labelVoteCount.text = movieVoteCount
         labelReleaseYear.text = "Release Year: \(movieReleaseYear)"
         textViewDesc.text = movieDesc
-        
         let backgroundImage = URL(string: ("\(Credential.BasePic)\(movieBgUrl)"))
         imageMoviePoster.sd_setImage(with: backgroundImage, placeholderImage: UIImage.gif(asset: "load"))
-
     }
     
-
     @IBAction func clickBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
