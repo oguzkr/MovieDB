@@ -8,6 +8,7 @@
 import UIKit
 protocol MovieDetailDelegate {
     func goToDetail()
+    func favMovie()
 }
 class MovieTableViewCell: UITableViewCell {
 
@@ -22,6 +23,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonFav: UIButton!
     
     var delegate:MovieDetailDelegate?
+    var movieId = Int()
+    let defaults = UserDefaults.standard
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +32,14 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     @IBAction func clickFav(_ sender: Any) {
-        
+        delegate?.favMovie()
+        let favMovies = defaults.array(forKey: "favMovies") as! [Int]
+
+        if favMovies.contains(movieId) {
+            buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+        } else {
+            buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+        }
     }
     
     @IBAction func clickInfo(_ sender: Any) {

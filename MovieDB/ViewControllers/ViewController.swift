@@ -11,8 +11,6 @@ import SwiftGifOrigin
 
 class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
 
-    
-
     //MARK: VARIABLES & OUTLETS
     let defaults = UserDefaults.standard
     let network: networkManager = networkManager()
@@ -28,7 +26,8 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
     var movieBgUrl = String()
     var movieReleaseYear = String()
     var currentPage = 1
-    
+    var currentMovie : Result?
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     //MARK: AT START
@@ -42,10 +41,14 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
     
     //MARK: CLICK EVENTS
     
+    @IBAction func clickChangeView(_ sender: Any) {
+        self.showAlert(titleInput: ":(", messageInput: "CollectionView için zamanım olmadı ama github profilimde başka bir repoda var")
+    }
+    
+
     //MARK: HELPER FUNCTIONS
     func getMovies(){
         network.getMovies(page: currentPage) { success in
@@ -90,6 +93,19 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
     //MARK: PROTOCOL FUNCTIONS
     func goToDetail() {
         performSegue(withIdentifier: Identifiers.detailPageSegue, sender: nil)
+    }
+    
+    func favMovie() {
+        var favMovies = defaults.array(forKey: "favMovies") as! [Int]
+
+        if favMovies.contains(currentMovie!.id) {
+            favMovies.removeAll(where: { $0 == currentMovie?.id })
+            print("Removed: \(currentMovie?.title ?? "")")
+        } else {
+            favMovies.append(currentMovie!.id)
+            print("Added: \(currentMovie?.title ?? "")")
+        }
+        defaults.set(favMovies, forKey: "favMovies")
     }
     
     func goToNextPage() {
@@ -139,9 +155,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTVCell", for: indexPath) as! MovieTableViewCell
         let customBackground = "https://image.tmdb.org/t/p/w200/z2UtGA1WggESspi6KOXeo66lvLx.jpg"
         let bgColorView = UIView()
+        let favMovies = defaults.array(forKey: "favMovies") as! [Int]
+
         bgColorView.backgroundColor = #colorLiteral(red: 0.1425223881, green: 0.1450759539, blue: 0.2010178939, alpha: 1)
         cell.selectedBackgroundView = bgColorView
         cell.delegate = self
+        
         if searching {
             cell.labelMovieName.text = filteredMovies[indexPath.row].title
             cell.labelMovieVote.text = "\(filteredMovies[indexPath.row].vote_average)/10"
@@ -150,6 +169,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let backgroundImage = URL(string: ("\(Credential.BasePic)\(filteredMovies[indexPath.row].backdrop_path ?? customBackground)"))
             cell.imageViewMovieBg.sd_setImage(with: backgroundImage, placeholderImage: UIImage.gif(asset: "load"))
             cell.labelReleaseYear.text = "Release Date: \(filteredMovies[indexPath.row].release_date ?? "Bilinmiyor")"
+            cell.movieId = filteredMovies[indexPath.row].id
+
+            if favMovies.contains(filteredMovies[indexPath.row].id) {
+                cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+            } else {
+                cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+            }
         } else {
             cell.labelMovieName.text = movies.first!.results[indexPath.row].title
             cell.labelMovieVote.text = "\(movies.first!.results[indexPath.row].vote_average)/10"
@@ -158,17 +184,35 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let backgroundImage = URL(string: ("\(Credential.BasePic)\(movies.first!.results[indexPath.row].backdrop_path ?? customBackground)"))
             cell.imageViewMovieBg.sd_setImage(with: backgroundImage, placeholderImage: UIImage.gif(asset: "load"))
             cell.labelReleaseYear.text = "Release Date: \(movies.first!.results[indexPath.row].release_date ?? "Bilinmiyor")"
+            cell.movieId = movies.first!.results[indexPath.row].id
+
+            if favMovies.contains(movies.first!.results[indexPath.row].id) {
+                cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+            } else {
+                cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+            }
         }
+        
+        
+        
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        movieBgUrl = movies.first!.results[indexPath.row].poster_path
-        movieName = movies.first!.results[indexPath.row].title
-        movieVote = "\(movies.first!.results[indexPath.row].vote_average)/10"
-        movieVoteCount = "\(movies.first!.results[indexPath.row].vote_count)"
-        movieDesc = movies.first!.results[indexPath.row].overview
+        if searching {
+            currentMovie = Result(adult: filteredMovies[indexPath.row].adult, backdrop_path: filteredMovies[indexPath.row].backdrop_path, genre_ids: filteredMovies[indexPath.row].genre_ids, id: filteredMovies[indexPath.row].id, original_language: filteredMovies[indexPath.row].original_language, original_title: filteredMovies[indexPath.row].original_title, overview: filteredMovies[indexPath.row].overview, popularity: filteredMovies[indexPath.row].popularity, poster_path: filteredMovies[indexPath.row].poster_path, release_date: filteredMovies[indexPath.row].release_date, title: filteredMovies[indexPath.row].title, video: filteredMovies[indexPath.row].video, vote_average: filteredMovies[indexPath.row].vote_average, vote_count: filteredMovies[indexPath.row].vote_count)
+        } else {
+            currentMovie = Result(adult: movies.first!.results[indexPath.row].adult, backdrop_path: movies.first!.results[indexPath.row].backdrop_path, genre_ids: movies.first!.results[indexPath.row].genre_ids, id: movies.first!.results[indexPath.row].id, original_language: movies.first!.results[indexPath.row].original_language, original_title: movies.first!.results[indexPath.row].original_title, overview: movies.first!.results[indexPath.row].overview, popularity: movies.first!.results[indexPath.row].popularity, poster_path: movies.first!.results[indexPath.row].poster_path, release_date: movies.first!.results[indexPath.row].release_date, title: movies.first!.results[indexPath.row].title, video: movies.first!.results[indexPath.row].video, vote_average: movies.first!.results[indexPath.row].vote_average, vote_count: movies.first!.results[indexPath.row].vote_count)
+        }
+        
+        movieBgUrl = currentMovie!.poster_path
+        movieName = currentMovie!.title
+        movieVote = "\(currentMovie!.vote_average)/10"
+        movieVoteCount = "\(currentMovie!.vote_count)"
+        movieDesc = currentMovie!.overview
+        movieReleaseYear =  currentMovie!.release_date!
+        
     }
     
     
