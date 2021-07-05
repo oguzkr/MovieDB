@@ -69,7 +69,7 @@
                                 <color key="barTintColor" name="Purple"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0zv-mt-eQW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0zv-mt-eQW">
                                 <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                                 <color key="sectionIndexBackgroundColor" name="Purple"/>
@@ -273,7 +273,7 @@
     <resources>
         <image name="ic_back" width="64" height="64"/>
         <image name="ic_collection" width="64" height="64"/>
-        <image name="ic_fav_full" width="128" height="128"/>
+        <image name="ic_fav_full" width="64" height="64"/>
         <namedColor name="DarkBlue">
             <color red="0.18000000715255737" green="0.18400000035762787" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
