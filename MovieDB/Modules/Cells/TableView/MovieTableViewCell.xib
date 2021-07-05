@@ -210,7 +210,7 @@
     <resources>
         <image name="ic_down_arrow" width="128" height="128"/>
         <image name="ic_fav_empty" width="128" height="128"/>
-        <image name="ic_fav_full" width="128" height="128"/>
+        <image name="ic_fav_full" width="64" height="64"/>
         <image name="ic_info" width="64" height="64"/>
     </resources>
 </document>

@@ -33,6 +33,9 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
     //MARK: AT START
     override func viewDidLoad() {
         super.viewDidLoad()
+        if defaults.array(forKey: "favMovies") == nil {
+            defaults.set([], forKey: "favMovies")
+        }
         setSearchBar()
         getMovies()
     }
@@ -96,16 +99,16 @@ class ViewController: UIViewController, MovieDetailDelegate, LoadMoreDelegate {
     }
     
     func favMovie() {
-        var favMovies = defaults.array(forKey: "favMovies") as! [Int]
-
-        if favMovies.contains(currentMovie!.id) {
-            favMovies.removeAll(where: { $0 == currentMovie?.id })
-            print("Removed: \(currentMovie?.title ?? "")")
-        } else {
-            favMovies.append(currentMovie!.id)
-            print("Added: \(currentMovie?.title ?? "")")
+        if var favMovies = defaults.array(forKey: "favMovies") as? [Int] {
+            if favMovies.contains(currentMovie!.id) {
+                favMovies.removeAll(where: { $0 == currentMovie?.id })
+                print("Removed: \(currentMovie?.title ?? "")")
+            } else {
+                favMovies.append(currentMovie!.id)
+                print("Added: \(currentMovie?.title ?? "")")
+            }
+            defaults.set(favMovies, forKey: "favMovies")
         }
-        defaults.set(favMovies, forKey: "favMovies")
     }
     
     func goToNextPage() {
@@ -143,8 +146,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTVCell", for: indexPath) as! MovieTableViewCell
         let customBackground = "https://image.tmdb.org/t/p/w200/z2UtGA1WggESspi6KOXeo66lvLx.jpg"
         let bgColorView = UIView()
-        let favMovies = defaults.array(forKey: "favMovies") as! [Int]
 
+
+        
         bgColorView.backgroundColor = #colorLiteral(red: 0.1425223881, green: 0.1450759539, blue: 0.2010178939, alpha: 1)
         cell.selectedBackgroundView = bgColorView
         cell.delegate = self
@@ -158,11 +162,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imageViewMovieBg.sd_setImage(with: backgroundImage, placeholderImage: UIImage.gif(asset: "load"))
             cell.labelReleaseYear.text = "Release Date: \(filteredMovies[indexPath.row].release_date ?? "Bilinmiyor")"
             cell.movieId = filteredMovies[indexPath.row].id
-
-            if favMovies.contains(filteredMovies[indexPath.row].id) {
-                cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
-            } else {
-                cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+            if let favMovies = defaults.array(forKey: "favMovies") as? [Int] {
+                if favMovies.contains(filteredMovies[indexPath.row].id) {
+                    cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+                } else {
+                    cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+                }
             }
         } else {
             cell.labelMovieName.text = movies.first!.results[indexPath.row].title
@@ -173,17 +178,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imageViewMovieBg.sd_setImage(with: backgroundImage, placeholderImage: UIImage.gif(asset: "load"))
             cell.labelReleaseYear.text = "Release Date: \(movies.first!.results[indexPath.row].release_date ?? "Bilinmiyor")"
             cell.movieId = movies.first!.results[indexPath.row].id
-
-            if favMovies.contains(movies.first!.results[indexPath.row].id) {
-                cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
-            } else {
-                cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+            if let favMovies = defaults.array(forKey: "favMovies") as? [Int] {
+                if favMovies.contains(movies.first!.results[indexPath.row].id) {
+                    cell.buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+                } else {
+                    cell.buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+                }
             }
         }
-        
-        
-        
-
         return cell
     }
     

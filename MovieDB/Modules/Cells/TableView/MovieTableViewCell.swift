@@ -33,12 +33,13 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func clickFav(_ sender: Any) {
         delegate?.favMovie()
-        let favMovies = defaults.array(forKey: "favMovies") as! [Int]
-
-        if favMovies.contains(movieId) {
-            buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
-        } else {
-            buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+        
+        if let favMovies = defaults.array(forKey: "favMovies") as? [Int] {
+            if favMovies.contains(movieId) {
+                buttonFav.setImage(UIImage(named: "ic_fav_full"), for: .normal)
+            } else {
+                buttonFav.setImage(UIImage(named: "ic_fav_empty"), for: .normal)
+            }
         }
     }
     
